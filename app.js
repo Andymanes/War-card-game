@@ -15,7 +15,7 @@
 - Assign half of the shuffled deck to player 1 and the other half 
   to player 2
     - probably want some kind of a function called "deal" that will do this
-      that can be called on later to restart the game
+      that can be called on later 
 
 !!!! STEP 4 !!!! - Should probably do this before step 3
 - create 2 players
@@ -23,6 +23,21 @@
     - variables?
 
 !!!! STEP 5 !!!!
+- begin creating play table
+    - assign player 1 to the left
+    - assign player 2 to the right
+
+!!!! STEP 6 !!!!
+- Create "flip cards" button that has JS functionality
+    - reveal 1 card from each pile
+    - calculates the highest card
+    - puts both cards in the winners "remaining deck" pile
+
+!!!! STEP 7 !!!!
+- incorporate a tie scenario to the JS
+    - incorporate appropriate functions/calculations for when this happens
+    - acquire headache
+    
 
 
 
