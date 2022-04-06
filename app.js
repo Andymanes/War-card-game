@@ -32,21 +32,33 @@
     - reveal 1 card from each pile
     - calculates the highest card
     - puts both cards in the winners "remaining deck" pile
+        - updates total of cards in "remaining deck" for each player
 
 !!!! STEP 7 !!!!
 - incorporate a tie scenario to the JS
     - incorporate appropriate functions/calculations for when this happens
     - acquire headache
+
+!!!! STEP 8 !!!!
+- add win condition 
+
+!!!! STEP 9 !!!!
+- add "new game" button that resets the entire board to back the beginning
+
+!!!! STEP 10 !!!!
+- make it pretty with CSS
+
+
+                            !!!!!!!!!!!!!!!!!!!!!!
+                            !!!!!!!!!!!!!!!!!!!!!!
+                            !!!!!!BONUS STUFF!!!!!
+                            !!!!!!!!!!!!!!!!!!!!!!
+                            !!!!!!!!!!!!!!!!!!!!!!
+
+
+- Add messages if a high card is lost
+- Add dropdown menu of messages for players to say to each other 
     
-
-
-
-
-
-
-
-
-
 */
 
 
