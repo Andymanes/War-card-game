@@ -17,6 +17,14 @@
     - probably want some kind of a function called "deal" that will do this
       that can be called on later to restart the game
 
+!!!! STEP 4 !!!! - Should probably do this before step 3
+- create 2 players
+    - Objects?
+    - variables?
+
+!!!! STEP 5 !!!!
+
+
 
 
 
