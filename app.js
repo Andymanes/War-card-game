@@ -33,3 +33,10 @@ function shuffleDeck(array) {
 }
   shuffleDeck(deck)
   console.log(deck)
+
+  let cutDeck = Math.ceil(deck.length / 2)
+//   console.log(cutDeck)
+let topDeck = deck.splice(0, cutDeck)
+console.log(topDeck)
+let bottomDeck = deck.splice(-cutDeck)
+console.log(bottomDeck)
