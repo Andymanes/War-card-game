@@ -1,10 +1,4 @@
-// suits array
-// let suits = ['S', 'C', 'H', 'D']
-// console.log(suits)
 
-// let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-// console.log(ranks)
-// let deck = []
 
 // for (let i = 0; i < ranks.length; i++) {
 //   console.log(ranks)
@@ -16,8 +10,8 @@
 let suits = ['S', 'C', 'H', 'D']
 let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 let deck = []
-
-
+let player1 = []
+let player2 = []
 
 for (let i = 0; i < suits.length; i++) {
      for (let r = 0; r < ranks.length; r++) {
@@ -39,14 +33,20 @@ function shuffleDeck(array) {
 }
 
 shuffleDeck(deck)
-console.log(deck)
+// console.log(deck)
 
 let cutDeck = Math.ceil(deck.length / 2)
 //   console.log(cutDeck)
 
-let topDeck = deck.slice().splice(0, cutDeck)
-console.log(topDeck)
+player1 = deck.slice().splice(0, cutDeck)
+console.log(player1)
 
-let bottomDeck = deck.slice().splice(-cutDeck)
-console.log(bottomDeck)
+player2 = deck.slice().splice(-cutDeck)
+console.log(player2)
+// shuffled and cut deck then applied each player 26 cards
+// maybe turn this into a function? call it deal?
 
+const flip = [player1.shift(), player2.shift()]
+console.log(player1)
+console.log(player2)
+console.log(flip)
