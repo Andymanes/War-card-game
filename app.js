@@ -10,21 +10,32 @@ let deck = []
 let player1 = []
 let player2 = []
 let compare = []
+let tiePile = []
 let tie = false
 let newGame = document.querySelector('.new-game')
 let flipCard = document.querySelector('.flip')
 let declareWar = document.querySelector('.declare-war')
 
 declareWar.addEventListener('click', () => {
-    let compare = [player1[0], player1[1], player1[2], player2[0], player2[1], player2[2]]
-    console.log('flipping', parseInt(compare[2], 10), parseInt(compare[5], 10))
-    if(parseInt(compare[2], 10) > parseInt(compare[5], 10) ) {
-        player1.splice(0, 3)
-        player2.splice(0, 3)
+    let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
+    console.log('tie pile', compare)
+    player1.splice(0, 4)
+    player2.splice(0, 4)
+    console.log('war flip', parseInt(compare[3], 10), parseInt(compare[7], 10))
+    console.log(player1)
+    console.log(player2)
+    // return (compare)
+    if(parseInt(compare[3], 10) === parseInt(compare[7], 10)) {
+        tie = true
+        let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player1[3]]
+        console.log(compare)
+        player1.splice(0, 4)
+        player2.splice(0, 4)
+        document.querySelector('.declare-war').style.visibility = 'visible'
+        // return compare
+    } else if(parseInt(compare[3], 10) > parseInt(compare[7], 10) ) {
         player1.push(...compare)
     } else {
-        player1.splice(0, 3)
-        player2.splice(0, 3)
         player2.push(...compare)
     }
     console.log('player1', player1)
@@ -74,6 +85,16 @@ flipCard.addEventListener('click', () => {
         }
 })
 
+
+// function warTie() {
+//     let tiePile = [[player1[0], player1[1], player1[2], player2[0], player2[1], player2[2]]]
+//     player1.splice(0, 3)
+//     player2.splice(0, 3)
+//     console.log(tiePile)
+//     console.log(player1)
+//     console.log(player2)
+// }
+// console.log(warTie())
 // if(tie === true)
 // document.querySelector('.declare-war').style.visibility = 'visible'
 
