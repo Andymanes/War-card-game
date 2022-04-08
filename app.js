@@ -6,12 +6,15 @@
 
 let suits = ['S', 'C', 'H', 'D']
 let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
+// 'j' > '2', '3', '4', '5', '6', '7', '8', '9', '10' 
+
 let deck = []
 let player1 = []
 let player2 = []
 let compare = []
 let tiePile = []
 let tie = false
+let activeGame = false
 let newGame = document.querySelector('.new-game')
 let flipCard = document.querySelector('.flip')
 let declareWar = document.querySelector('.declare-war')
@@ -25,6 +28,7 @@ declareWar.addEventListener('click', () => {
     console.log(player1)
     console.log(player2)
     // return (compare)
+    if(activeGame === true)
     if(parseInt(compare[3], 10) === parseInt(compare[7], 10)) {
         tie = true
         let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player1[3]]
@@ -48,7 +52,7 @@ newGame.addEventListener('click', () => {
     // let dealt = false
     //     if(dealt === false) {
         shuffleDeck(deck)
-        
+        activeGame = true
         let cutDeck = Math.ceil(deck.length / 2)
         
         player1 = deck.slice().splice(0, cutDeck)
@@ -63,6 +67,7 @@ newGame.addEventListener('click', () => {
 
 
 flipCard.addEventListener('click', () => {
+    if (activeGame === true) {
     let compare = [player1[0], player2[0]]
     // parseInt(compare[0])
     // parseInt(compare[1])
@@ -83,7 +88,7 @@ flipCard.addEventListener('click', () => {
         console.log('player1', player1)
         console.log('player2', player2)
         }
-})
+}})
 
 
 // function warTie() {
