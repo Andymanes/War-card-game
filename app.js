@@ -18,6 +18,8 @@ let activeGame = false
 let newGame = document.querySelector('.new-game')
 let flipCard = document.querySelector('.flip')
 let declareWar = document.querySelector('.declare-war')
+let player1Cards = document.querySelector('.player1-cards')
+let player2Cards = document.querySelector('.player2-cards')
 
 declareWar.addEventListener('click', () => {
     let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
@@ -44,6 +46,8 @@ declareWar.addEventListener('click', () => {
     }
     console.log('player1', player1)
     console.log('player2', player2)
+    player1Cards.innerText = player1.length
+    player2Cards.innerText = player2.length
     tie = false
     document.querySelector('.declare-war').style.visibility = 'hidden'
 })
@@ -88,6 +92,8 @@ flipCard.addEventListener('click', () => {
         console.log('player1', player1)
         console.log('player2', player2)
         }
+    player1Cards.innerText = player1.length
+    player2Cards.innerText = player2.length
 }})
 
 
