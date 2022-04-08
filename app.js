@@ -1,5 +1,6 @@
 
 
+
 // GLOBAL VARIABLES
 
 
@@ -37,8 +38,9 @@ flipCard.addEventListener('click', () => {
     parseInt(compare[0])
     parseInt(compare[1])
     console.log('flipping', parseInt(compare[0], 10), parseInt(compare[1], 10))
-    
-    if(parseInt(compare[0], 10) > parseInt(compare[1], 10)) {
+    if(parseInt(compare[0], 10) === parseInt(compare[1], 10)) {
+        return compare
+} else if(parseInt(compare[0], 10) > parseInt(compare[1], 10)) {
         player1.push(...compare)
         player1.shift(), player2.shift()
     } else {
@@ -74,30 +76,3 @@ function shuffleDeck(array) {
         // this is the Fisher-Yates-Algorithm
     }
 } 
-
-// function deal() {
-//     if(dealt === false) {
-//         shuffleDeck(deck)
-    
-//         let cutDeck = Math.ceil(deck.length / 2)
-    
-//         player1 = deck.slice().splice(0, cutDeck)
-//         console.log(player1)
-
-//         player2 = deck.slice().splice(-cutDeck)
-//         console.log(player2)
-//     }
-// dealt = true
-// }
-
-
-
-
-
-// console.log(player1)
-// console.log(player2)
-// shuffled and cut deck then applied each player 26 cards
-// maybe turn this into a function? call it deal?
-
-
-
