@@ -70,7 +70,7 @@ newGame.addEventListener('click', () => {
     
         player2 = deck.slice().splice(-cutDeck)
         console.log('player2', player2)
-        
+        document.querySelector('.declare-war').style.visibility = 'hidden'
         player1Cards.innerText = player1.length
         player2Cards.innerText = player2.length
     }
