@@ -16,9 +16,9 @@ let flipCard = document.querySelector('.flip')
 let declareWar = document.querySelector('.declare-war')
 
 declareWar.addEventListener('click', () => {
-    let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
-    console.log('flipping', parseInt(compare[3], 10), parseInt(compare[7], 10))
-    if(parseInt(compare[3], 10) > parseInt(compare[7], 10) ) {
+    let compare = [player1[0], player1[1], player1[2], player2[0], player2[1], player2[2]]
+    console.log('flipping', parseInt(compare[2], 10), parseInt(compare[5], 10))
+    if(parseInt(compare[2], 10) > parseInt(compare[5], 10) ) {
         player1.splice(0, 3)
         player2.splice(0, 3)
         player1.push(...compare)
@@ -56,20 +56,22 @@ flipCard.addEventListener('click', () => {
     // parseInt(compare[0])
     // parseInt(compare[1])
     console.log('flipping', parseInt(compare[0], 10), parseInt(compare[1], 10))
-    if(parseInt(compare[0], 10) === parseInt(compare[1], 10)) {
+    if(parseInt(compare[0], 10) === parseInt(compare[1], 10) && tie === false) {
         tie = true
         document.querySelector('.declare-war').style.visibility = 'visible'
         return compare
-} else if(parseInt(compare[0], 10) > parseInt(compare[1], 10)) {
+    } else if(parseInt(compare[0], 10) > parseInt(compare[1], 10) && tie === false) {
         player1.push(...compare)
         player1.shift(), player2.shift()
-    } else {
+    } else if(parseInt(compare[0], 10) < parseInt(compare[1], 10) && tie === false) {
         player2.push(...compare)
         player1.shift(), player2.shift()
     }
-        
-    console.log('player1', player1)
-    console.log('player2', player2)
+    
+    if(tie === false) {
+        console.log('player1', player1)
+        console.log('player2', player2)
+        }
 })
 
 // if(tie === true)
