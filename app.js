@@ -20,9 +20,13 @@ let flipCard = document.querySelector('.flip')
 let declareWar = document.querySelector('.declare-war')
 let player1Cards = document.querySelector('.player1-cards')
 let player2Cards = document.querySelector('.player2-cards')
+let player1Draw = document.querySelector('.player1-flipped-card')
+let player2Draw = document.querySelector('.player2-flipped-card')
 
 declareWar.addEventListener('click', () => {
     let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
+    player1Draw.innerText = player1[3]
+    player2Draw.innerText = player2[3]
     console.log('tie pile', compare)
     player1.splice(0, 4)
     player2.splice(0, 4)
@@ -56,6 +60,8 @@ newGame.addEventListener('click', () => {
     // let dealt = false
     //     if(dealt === false) {
         shuffleDeck(deck)
+        player1Draw.innerText = null
+        player2Draw.innerText = null
         activeGame = true
         let cutDeck = Math.ceil(deck.length / 2)
         
@@ -76,6 +82,8 @@ newGame.addEventListener('click', () => {
 flipCard.addEventListener('click', () => {
     if (activeGame === true) {
     let compare = [player1[0], player2[0]]
+    player1Draw.innerText = player1[0]
+    player2Draw.innerText = player2[0]
     // parseInt(compare[0])
     // parseInt(compare[1])
     console.log('flipping', parseInt(compare[0], 10), parseInt(compare[1], 10))
@@ -97,6 +105,7 @@ flipCard.addEventListener('click', () => {
         }
     player1Cards.innerText = player1.length
     player2Cards.innerText = player2.length
+    
 }})
 
 
