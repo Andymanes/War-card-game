@@ -17,6 +17,7 @@ let declareWar = document.querySelector('.declare-war')
 
 declareWar.addEventListener('click', () => {
     let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
+    console.log('flipping', parseInt(compare[3], 10), parseInt(compare[7], 10))
     if(parseInt(compare[3], 10) > parseInt(compare[7], 10) ) {
         player1.splice(0, 3)
         player2.splice(0, 3)
@@ -26,6 +27,8 @@ declareWar.addEventListener('click', () => {
         player2.splice(0, 3)
         player2.push(...compare)
     }
+    console.log('player1', player1)
+    console.log('player2', player2)
     tie = false
     document.querySelector('.declare-war').style.visibility = 'hidden'
 })
@@ -50,8 +53,8 @@ newGame.addEventListener('click', () => {
 
 flipCard.addEventListener('click', () => {
     let compare = [player1[0], player2[0]]
-    parseInt(compare[0])
-    parseInt(compare[1])
+    // parseInt(compare[0])
+    // parseInt(compare[1])
     console.log('flipping', parseInt(compare[0], 10), parseInt(compare[1], 10))
     if(parseInt(compare[0], 10) === parseInt(compare[1], 10)) {
         tie = true
