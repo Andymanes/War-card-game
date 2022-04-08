@@ -10,10 +10,25 @@ let deck = []
 let player1 = []
 let player2 = []
 let compare = []
-let dealt = false
+let tie = false
 let newGame = document.querySelector('.new-game')
 let flipCard = document.querySelector('.flip')
+let declareWar = document.querySelector('.declare-war')
 
+declareWar.addEventListener('click', () => {
+    let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
+    if(parseInt(compare[3], 10) > parseInt(compare[7], 10) ) {
+        player1.splice(0, 3)
+        player2.splice(0, 3)
+        player1.push(...compare)
+    } else {
+        player1.splice(0, 3)
+        player2.splice(0, 3)
+        player2.push(...compare)
+    }
+    tie = false
+    document.querySelector('.declare-war').style.visibility = 'hidden'
+})
 
 newGame.addEventListener('click', () => {
     // let dealt = false
@@ -39,6 +54,8 @@ flipCard.addEventListener('click', () => {
     parseInt(compare[1])
     console.log('flipping', parseInt(compare[0], 10), parseInt(compare[1], 10))
     if(parseInt(compare[0], 10) === parseInt(compare[1], 10)) {
+        tie = true
+        document.querySelector('.declare-war').style.visibility = 'visible'
         return compare
 } else if(parseInt(compare[0], 10) > parseInt(compare[1], 10)) {
         player1.push(...compare)
@@ -48,14 +65,12 @@ flipCard.addEventListener('click', () => {
         player1.shift(), player2.shift()
     }
         
-    // console.log('flipping', parseInt(compare[0]), parseInt(compare[1]) )
-    // player1.shift(), player2.shift()
-    
     console.log('player1', player1)
     console.log('player2', player2)
-    
 })
 
+// if(tie === true)
+// document.querySelector('.declare-war').style.visibility = 'visible'
 
 
 // creating 52 card deck
