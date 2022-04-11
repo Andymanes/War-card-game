@@ -34,12 +34,11 @@ declareWar.addEventListener('click', () => {
     let tiePile = [player1[0], player1[1], player1[2], player1[3], player1[4], player2[0], player2[1], player2[2], player2[3], player2[4]]
     // compare player 1 fourth index to player 2 fourth index and give all of the arrays in
     // tiePile to the winner then splice out first 4 array from each player's array
-    player1.shift()
-    player2.shift()
+    
     console.log(player1Flip, player2Flip)
-    player1Draw.innerText = player1[3][1]
-    console.log('player2 war flip', player2[3][0])
-    player2Draw.innerText = player2[3][1]
+    player1Draw.innerText = player1[4][1]
+    console.log('player2 war flip', player2[4][0])
+    player2Draw.innerText = player2[4][1]
     console.log('tie pile', tiePile)
     console.log('war flip')
     console.log(player1Flip, player2Flip)
@@ -76,6 +75,9 @@ declareWar.addEventListener('click', () => {
 newGame.addEventListener('click', () => {
     // let dealt = false
     //     if(dealt === false) {
+        player1 = []
+        player2 = []
+        makeDeck()
         shuffleDeck(deck)
         player1Draw.innerText = null
         player2Draw.innerText = null
@@ -135,6 +137,7 @@ flipCard.addEventListener('click', () => {
         console.log('player1', player1)
         console.log('player2', player2)
         }
+    winner()
     player1Cards.innerText = player1.length
     player2Cards.innerText = player2.length
     
@@ -145,6 +148,7 @@ flipCard.addEventListener('click', () => {
 
 
 // creating 52 card deck
+function makeDeck() {
 for (let i = 0; i < suits.length; i++) {
      for (let j = 0; j < ranks.length; j++) {
         //  for (let y = 0; y < scores.length; y++) {
@@ -154,7 +158,7 @@ for (let i = 0; i < suits.length; i++) {
     
     // applying one of each suit to one of each rank
         }
-}
+}}
 
 
 // shuffling deck
@@ -182,14 +186,14 @@ if(player1.length === 0) {
     declareWar.style.visibility = 'visible'
     declareWar.innerText = 'Player 1 Wins!'
     activeGame = false
-} else if(player1.length < 4 && tie === true) {
+} else if(player1.length < 5 && tie === true) {
     flipCard.style.visibility = 'hidden'
     declareWar.style.visibility = 'visible'
     console.log('player 2 wins')
     declareWar.innerText = 'Player 2 Wins!'
     activeGame = false
     return player2Cards
-} else if(player2.length < 4 && tie === true) {
+} else if(player2.length < 5 && tie === true) {
     console.log('player 1 wins')
     flipCard.style.visibility = 'hidden'
     declareWar.innerText = 'Player 1 Wins!'
