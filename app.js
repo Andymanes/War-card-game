@@ -190,8 +190,8 @@ if(player1.length === 0) {
     return player2Cards
 }
 }
-declareWar.style.visibility = 'hidden'
-flipCard.style.visibility = 'hidden'
+// declareWar.style.visibility = 'hidden'
+// flipCard.style.visibility = 'hidden'
 
 
 // const lastItem = colors[colors.length - 1] 
