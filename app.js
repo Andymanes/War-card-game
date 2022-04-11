@@ -26,6 +26,7 @@ let player2Draw = document.querySelector('.player2-flipped-card')
 
 
 
+
 declareWar.addEventListener('click', () => {
     
     // set a variable for player 1 fourth array and another for player 2 fourth array
@@ -73,10 +74,7 @@ declareWar.addEventListener('click', () => {
 })
 
 newGame.addEventListener('click', () => {
-    // let dealt = false
-    //     if(dealt === false) {
-        player1 = []
-        player2 = []
+        
         makeDeck()
         shuffleDeck(deck)
         player1Draw.innerText = null
@@ -93,10 +91,7 @@ newGame.addEventListener('click', () => {
         flipCard.style.visibility = 'visible'
         player1Cards.innerText = player1.length
         player2Cards.innerText = player2.length
-    }
-    // return deal()
-    // dealt = true
-)
+})
 
 
 flipCard.addEventListener('click', () => {
@@ -107,14 +102,9 @@ flipCard.addEventListener('click', () => {
     let player2Flip = player2[0]
     // compare first index of each variable then push both arrays into the deck of whichever
     // player won the flip then remove the first variable out of each player's deck
-    // console.log('player1 flip', player1Flip)
-    // console.log('player2 flip', player2Flip)
     winner()
     player1Draw.innerText = player1[0][1]
     player2Draw.innerText = player2[0][1]
-    // return player1Flip
-    // parseInt(compare[0])
-    // parseInt(compare[1])
     console.log('flipping', player1Flip, player2Flip)
     if(player1Flip[0] === player2Flip[0] && tie === false) {
         tie = true
@@ -153,10 +143,7 @@ for (let i = 0; i < suits.length; i++) {
      for (let j = 0; j < ranks.length; j++) {
         //  for (let y = 0; y < scores.length; y++) {
             deck.push([scores[j], ranks[j] + suits[i]])
-        //  }
-        // console.log(ranks[r] + suits[i])
-    
-    // applying one of each suit to one of each rank
+        // applying one of each suit to one of each rank
         }
 }}
 
