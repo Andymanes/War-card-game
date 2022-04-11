@@ -5,7 +5,7 @@
 
 
 let suits = ['S', 'C', 'H', 'D']
-let ranks = ['2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2']
+let ranks = ['1', '3', '5', '7', '9', '11']
 // 'j' > '2', '3', '4', '5', '6', '7', '8', '9', '10' 
 
 let deck = []
@@ -67,7 +67,7 @@ newGame.addEventListener('click', () => {
     
         player2 = deck.slice().splice(-cutDeck)
         console.log('player2', player2)
-        declareWar.style.visibility = 'hidden'
+        declareWar.style.visibility = 'visible'
         player1Cards.innerText = player1.length
         player2Cards.innerText = player2.length
     }
@@ -120,9 +120,28 @@ for (let i = 0; i < suits.length; i++) {
 
 // shuffling deck
 function shuffleDeck(array) {
-    for (let i = 51; i > 0; i--) {
+    for (let i = 23; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
         // this is the Fisher-Yates-Algorithm
     }
 } 
+
+
+// win condition:
+// one player runs out of cards or if one player only has an ace left
+
+if(player1.length == 1 && player1[0] == '14') {
+    // have html class for this that can be manipulated to say whatever I want
+    // hide player 1 section and button section
+    // change player 2 section text to player 2 wins
+    document.querySelector('.left').style.visibility = 'hidden'
+    document.querySelector('.buttons').style.visibility = 'hidden'
+    document.querySelector('pile2').innerText = 'WINS!'
+    console.log('player 2 wins')
+} else if(player2.length == 1 && player2[0] == '14') {
+    document.querySelector('.right').style.visibility = 'hidden'
+    document.querySelector('.buttons').style.visibility = 'hidden'
+    document.querySelector('pile2').innerText = 'WINS!'
+    console.log('player 1 wins')
+}
