@@ -5,8 +5,8 @@
 
 
 let suits = [' of Spades', ' of Clubs', ' of Hearts', ' of Diamonds']
-let ranks = ['2', '3', '4', '5', '6']
-let scores = [2, 3, 4, 5, 6]
+let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+let scores = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 // , '7', '8', '9', '10', 'J', 'Q', 'K', 'A'
 // 7, 8, 9, 10, 11, 12, 13, 14
 let deck = []
@@ -30,15 +30,15 @@ let player2Draw = document.querySelector('.player2-flipped-card')
 declareWar.addEventListener('click', () => {
     
     // set a variable for player 1 fourth array and another for player 2 fourth array
-    let player1Flip = player1[3]
-    let player2Flip = player2[3]
+    let player1Flip = player1[4]
+    let player2Flip = player2[4]
     let tiePile = [player1[0], player1[1], player1[2], player1[3], player1[4], player2[0], player2[1], player2[2], player2[3], player2[4]]
     // compare player 1 fourth index to player 2 fourth index and give all of the arrays in
     // tiePile to the winner then splice out first 4 array from each player's array
     
-    console.log(player1Flip, player2Flip)
+    // console.log(player1Flip, player2Flip)
     player1Draw.innerText = player1[4][1]
-    console.log('player2 war flip', player2[4][0])
+    // console.log('player2 war flip', player2[4][0])
     player2Draw.innerText = player2[4][1]
     console.log('tie pile', tiePile)
     console.log('war flip')
@@ -74,8 +74,10 @@ declareWar.addEventListener('click', () => {
 })
 
 newGame.addEventListener('click', () => {
-        
-        makeDeck()
+        // let player1 = []
+        // let player2 = []
+        // let
+        // makeDeck()
         shuffleDeck(deck)
         player1Draw.innerText = null
         player2Draw.innerText = null
@@ -138,19 +140,19 @@ flipCard.addEventListener('click', () => {
 
 
 // creating 52 card deck
-function makeDeck() {
+// function makeDeck() {
 for (let i = 0; i < suits.length; i++) {
      for (let j = 0; j < ranks.length; j++) {
         //  for (let y = 0; y < scores.length; y++) {
             deck.push([scores[j], ranks[j] + suits[i]])
         // applying one of each suit to one of each rank
-        }
-}}
+        }}
+// }}
 
 
 // shuffling deck
 function shuffleDeck(array) {
-    for (let i = 17; i > 0; i--) {
+    for (let i = 51; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
         // this is the Fisher-Yates-Algorithm
