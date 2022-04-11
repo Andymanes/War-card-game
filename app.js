@@ -5,7 +5,7 @@
 
 
 let suits = ['S', 'C', 'H', 'D']
-let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
+let ranks = ['2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2']
 // 'j' > '2', '3', '4', '5', '6', '7', '8', '9', '10' 
 
 let deck = []
@@ -23,6 +23,8 @@ let player2Cards = document.querySelector('.player2-cards')
 let player1Draw = document.querySelector('.player1-flipped-card')
 let player2Draw = document.querySelector('.player2-flipped-card')
 
+
+
 declareWar.addEventListener('click', () => {
     let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
     player1Draw.innerText = player1[3]
@@ -31,17 +33,12 @@ declareWar.addEventListener('click', () => {
     player1.splice(0, 4)
     player2.splice(0, 4)
     console.log('war flip', parseInt(compare[3], 10), parseInt(compare[7], 10))
-    console.log(player1)
-    console.log(player2)
     // return (compare)
-    if(activeGame === true)
-    if(parseInt(compare[3], 10) === parseInt(compare[7], 10)) {
-        tie = true
+    // if a tie happens, do not remove 4 cards until declare war button clicked again
+    if(activeGame === true && parseInt(compare[3], 10) === parseInt(compare[7], 10)) {
         let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player1[3]]
-        console.log(compare)
-        player1.splice(0, 4)
-        player2.splice(0, 4)
-        document.querySelector('.declare-war').style.visibility = 'visible'
+        console.log('war flip tied', compare)
+        declareWar.style.visibility = 'visible'
         // return compare
     } else if(parseInt(compare[3], 10) > parseInt(compare[7], 10) ) {
         player1.push(...compare)
@@ -53,7 +50,7 @@ declareWar.addEventListener('click', () => {
     player1Cards.innerText = player1.length
     player2Cards.innerText = player2.length
     tie = false
-    document.querySelector('.declare-war').style.visibility = 'hidden'
+    declareWar.style.visibility = 'visible'
 })
 
 newGame.addEventListener('click', () => {
@@ -70,7 +67,7 @@ newGame.addEventListener('click', () => {
     
         player2 = deck.slice().splice(-cutDeck)
         console.log('player2', player2)
-        document.querySelector('.declare-war').style.visibility = 'hidden'
+        declareWar.style.visibility = 'hidden'
         player1Cards.innerText = player1.length
         player2Cards.innerText = player2.length
     }
@@ -89,7 +86,7 @@ flipCard.addEventListener('click', () => {
     console.log('flipping', parseInt(compare[0], 10), parseInt(compare[1], 10))
     if(parseInt(compare[0], 10) === parseInt(compare[1], 10) && tie === false) {
         tie = true
-        document.querySelector('.declare-war').style.visibility = 'visible'
+        declareWar.style.visibility = 'visible'
         return compare
     } else if(parseInt(compare[0], 10) > parseInt(compare[1], 10) && tie === false) {
         player1.push(...compare)
@@ -109,17 +106,6 @@ flipCard.addEventListener('click', () => {
 }})
 
 
-// function warTie() {
-//     let tiePile = [[player1[0], player1[1], player1[2], player2[0], player2[1], player2[2]]]
-//     player1.splice(0, 3)
-//     player2.splice(0, 3)
-//     console.log(tiePile)
-//     console.log(player1)
-//     console.log(player2)
-// }
-// console.log(warTie())
-// if(tie === true)
-// document.querySelector('.declare-war').style.visibility = 'visible'
 
 
 // creating 52 card deck
