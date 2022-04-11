@@ -27,24 +27,29 @@ let player2Draw = document.querySelector('.player2-flipped-card')
 
 
 declareWar.addEventListener('click', () => {
-    let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
-    player1Draw.innerText = player1[3]
-    player2Draw.innerText = player2[3]
-    console.log('tie pile', compare)
+    // set a variable for player 1 fourth array and another for player 2 fourth array
+    let player1Flip = player1[3]
+    let player2Flip = player2[3]
+    let tiePile = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player2[3]]
+    // compare player 1 fourth index to player 2 fourth index and give all of the arrays in
+    // tiePile to the winner then splice out first 4 array from each player's array
+    player1Draw.innerText = player1[3][1]
+    player2Draw.innerText = player2[3][1]
+    console.log('tie pile', tiePile)
     player1.splice(0, 4)
     player2.splice(0, 4)
-    console.log('war flip', parseInt(compare[3], 10), parseInt(compare[7], 10))
+    console.log('war flip', player1[0], player2[0])
     // return (compare)
     // if a tie happens, do not remove 4 cards until declare war button clicked again
-    if(activeGame === true && parseInt(compare[3], 10) === parseInt(compare[7], 10)) {
-        let compare = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player1[3]]
-        console.log('war flip tied', compare)
+    if(activeGame === true && player1Flip[0] === player2Flip[0]) {
+        let tiePile = [player1[0], player1[1], player1[2], player1[3], player2[0], player2[1], player2[2], player1[3]]
+        console.log('war flip tied', tiePile)
         declareWar.style.visibility = 'visible'
         // return compare
-    } else if(parseInt(compare[3], 10) > parseInt(compare[7], 10) ) {
-        player1.push(...compare)
+    } else if(player1Flip[0] > player2Flip[0]) {
+        player1.push(...tiePile)
     } else {
-        player2.push(...compare)
+        player2.push(...tiePile)
     }
     console.log('player1', player1)
     console.log('player2', player2)
@@ -79,25 +84,28 @@ newGame.addEventListener('click', () => {
 
 flipCard.addEventListener('click', () => {
     if (activeGame === true) {
-    let player1Flip = player1[0][0]
-    let player2Flip = player2[0][0]
-    console.log('player1 flip', player1Flip)
-    console.log('player2 flip', player2Flip)
+    // set first array of player 1 and player 2 to their own variables
+    let player1Flip = player1[0]
+    let player2Flip = player2[0]
+    // compare first index of each variable then push both arrays into the deck of whichever
+    // player won the flip then remove the first variable out of each player's deck
+    // console.log('player1 flip', player1Flip)
+    // console.log('player2 flip', player2Flip)
     player1Draw.innerText = player1[0][1]
     player2Draw.innerText = player2[0][1]
     // return player1Flip
     // parseInt(compare[0])
     // parseInt(compare[1])
-    console.log('flipping', compare[0], compare[1])
-    if(parseInt(compare[0], 10) === parseInt(compare[1], 10) && tie === false) {
+    console.log('flipping', player1Flip, player2Flip)
+    if(player1Flip[0] === player2Flip[0] && tie === false) {
         tie = true
         declareWar.style.visibility = 'visible'
-        return compare
-    } else if(parseInt(compare[0], 10) > parseInt(compare[1], 10) && tie === false) {
-        player1.push(...compare)
+        return player1Flip, player2Flip
+    } else if(player1Flip[0] > player2Flip[0] && tie === false) {
+        player1.push(player1Flip, player2Flip)
         player1.shift(), player2.shift()
-    } else if(parseInt(compare[0], 10) < parseInt(compare[1], 10) && tie === false) {
-        player2.push(...compare)
+    } else if(player1Flip[0] < player2Flip[0] && tie === false) {
+        player2.push(player1Flip, player2Flip)
         player1.shift(), player2.shift()
     }
     
