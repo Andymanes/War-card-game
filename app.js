@@ -5,10 +5,10 @@
 
 
 let suits = [' of Spades', ' of Clubs', ' of Hearts', ' of Diamonds']
-let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-let scores = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-// 'j' > '2', '3', '4', '5', '6', '7', '8', '9', '10' 
-
+let ranks = ['2', '3', '4', '5', '6']
+let scores = [2, 3, 4, 5, 6]
+// , '7', '8', '9', '10', 'J', 'Q', 'K', 'A'
+// 7, 8, 9, 10, 11, 12, 13, 14
 let deck = []
 let player1 = []
 let player2 = []
@@ -34,13 +34,17 @@ declareWar.addEventListener('click', () => {
     let tiePile = [player1[0], player1[1], player1[2], player1[3], player1[4], player2[0], player2[1], player2[2], player2[3], player2[4]]
     // compare player 1 fourth index to player 2 fourth index and give all of the arrays in
     // tiePile to the winner then splice out first 4 array from each player's array
-    player1Draw.innerText = player1[4][1]
-    player2Draw.innerText = player2[4][1]
+    player1.shift()
+    player2.shift()
+    console.log(player1Flip, player2Flip)
+    player1Draw.innerText = player1[3][1]
+    console.log('player2 war flip', player2[3][0])
+    player2Draw.innerText = player2[3][1]
     console.log('tie pile', tiePile)
-    player1.splice(0, 4)
-    player2.splice(0, 4)
     console.log('war flip')
     console.log(player1Flip, player2Flip)
+    player1.splice(0, 4)
+    player2.splice(0, 4)
     // return (compare)
     // if a tie happens, do not remove 4 cards until declare war button clicked again
     if(activeGame === true && player1Flip[0] === player2Flip[0]) {
@@ -66,6 +70,7 @@ declareWar.addEventListener('click', () => {
     tie = false
     declareWar.style.visibility = 'hidden'
     flipCard.style.visibility = 'visible'
+    winner()
 })
 
 newGame.addEventListener('click', () => {
@@ -102,6 +107,7 @@ flipCard.addEventListener('click', () => {
     // player won the flip then remove the first variable out of each player's deck
     // console.log('player1 flip', player1Flip)
     // console.log('player2 flip', player2Flip)
+    winner()
     player1Draw.innerText = player1[0][1]
     player2Draw.innerText = player2[0][1]
     // return player1Flip
@@ -110,21 +116,10 @@ flipCard.addEventListener('click', () => {
     console.log('flipping', player1Flip, player2Flip)
     if(player1Flip[0] === player2Flip[0] && tie === false) {
         tie = true
-        if(player1.length < 4 && tie === true) {
-            declareWar.style.visibility = 'visible'
-            console.log('player 2 wins')
-            declareWar.innerText = 'Player 2 Wins!'
-            return player1Cards
-        
-        } else if(player2.length < 4 && tie === true) {
-            declareWar.style.visibility = 'visible'
-            console.log('player 2 wins')
-            declareWar.innerText = 'Player 1 Wins!'
-            return player2Cards
-        }
         declareWar.style.visibility = 'visible'
         flipCard.style.visibility = 'hidden'
-        return player1Flip, player2Flip
+        winner()
+
     } else if(player1Flip[0] > player2Flip[0] && tie === false) {
         player1.push(player1Flip, player2Flip)
         player1.shift()
@@ -142,6 +137,7 @@ flipCard.addEventListener('click', () => {
         }
     player1Cards.innerText = player1.length
     player2Cards.innerText = player2.length
+    
     
 }})
 
@@ -163,7 +159,7 @@ for (let i = 0; i < suits.length; i++) {
 
 // shuffling deck
 function shuffleDeck(array) {
-    for (let i = 51; i > 0; i--) {
+    for (let i = 17; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
         // this is the Fisher-Yates-Algorithm
@@ -174,22 +170,30 @@ function shuffleDeck(array) {
 // win condition:
 // one player runs out of cards or if one player only has an ace left
 function winner() {
-if(player1.length == 0) {
+if(player1.length === 0) {
+    flipCard.style.visibility = 'hidden'
     declareWar.style.visibility = 'visible'
     declareWar.innerText = 'Player 2 Wins!'
     console.log('player 2 wins')
-} else if (player2.length == 0) {
+    activeGame = false
+} else if (player2.length === 0) {
     console.log('player 1 wins')
+    flipCard.style.visibility = 'hidden'
     declareWar.style.visibility = 'visible'
     declareWar.innerText = 'Player 1 Wins!'
+    activeGame = false
 } else if(player1.length < 4 && tie === true) {
+    flipCard.style.visibility = 'hidden'
     declareWar.style.visibility = 'visible'
-            console.log('player 2 wins')
-            declareWar.innerText = 'Player 2 Wins!'
-            return player2Cards
+    console.log('player 2 wins')
+    declareWar.innerText = 'Player 2 Wins!'
+    activeGame = false
+    return player2Cards
 } else if(player2.length < 4 && tie === true) {
     console.log('player 1 wins')
-     declareWar.innerText = 'Player 1 Wins!'
+    flipCard.style.visibility = 'hidden'
+    declareWar.innerText = 'Player 1 Wins!'
+    activeGame = false
     return player2Cards
 }
 }
