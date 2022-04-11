@@ -4,8 +4,22 @@
 // GLOBAL VARIABLES
 
 
-let suits = ['S', 'C', 'H', 'D']
-let ranks = ['1', '3', '5', '7', '9', '11']
+let suits = ['Spades', 'Clubs', 'Hearts', 'Diamonds']
+let ranks = [
+[2, '2'], 
+[3, '3'], 
+[4, '4'], 
+[5, '5'], 
+[6, '6'], 
+[7, '7'], 
+[8, '8'], 
+[9, '9'], 
+[10, '10'], 
+[11, 'J'], 
+[12, 'Q'], 
+[13, 'K'], 
+[14, 'A']]
+// let scores = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 // 'j' > '2', '3', '4', '5', '6', '7', '8', '9', '10' 
 
 let deck = []
@@ -110,9 +124,12 @@ flipCard.addEventListener('click', () => {
 
 // creating 52 card deck
 for (let i = 0; i < suits.length; i++) {
-     for (let r = 0; r < ranks.length; r++) {
+     for (let j = 0; j < ranks.length; j++) {
+        //  for (let y = 0; y < scores.length; y++) {
+            deck.push(ranks[j] + suits[i])
+        //  }
         // console.log(ranks[r] + suits[i])
-    deck.push(ranks[r] + suits[i])
+    
     // applying one of each suit to one of each rank
         }
 }
@@ -120,7 +137,7 @@ for (let i = 0; i < suits.length; i++) {
 
 // shuffling deck
 function shuffleDeck(array) {
-    for (let i = 23; i > 0; i--) {
+    for (let i = 51; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
         // this is the Fisher-Yates-Algorithm
@@ -144,4 +161,8 @@ if(player1.length == 1 && player1[0] == '14') {
     document.querySelector('.buttons').style.visibility = 'hidden'
     document.querySelector('pile2').innerText = 'WINS!'
     console.log('player 1 wins')
+    // when a player's deck gets low, undefined values show up and start filling in the arrays
+    // maybe .filter() method to remove them
 }
+// const lastItem = colors[colors.length - 1] 
+// JAKE MIZE SPECIAL
