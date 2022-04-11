@@ -4,22 +4,9 @@
 // GLOBAL VARIABLES
 
 
-let suits = ['Spades', 'Clubs', 'Hearts', 'Diamonds']
-let ranks = [
-[2, '2'], 
-[3, '3'], 
-[4, '4'], 
-[5, '5'], 
-[6, '6'], 
-[7, '7'], 
-[8, '8'], 
-[9, '9'], 
-[10, '10'], 
-[11, 'J'], 
-[12, 'Q'], 
-[13, 'K'], 
-[14, 'A']]
-// let scores = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+let suits = [' of Spades', ' of Clubs', ' of Hearts', ' of Diamonds']
+let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+let scores = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 // 'j' > '2', '3', '4', '5', '6', '7', '8', '9', '10' 
 
 let deck = []
@@ -92,12 +79,16 @@ newGame.addEventListener('click', () => {
 
 flipCard.addEventListener('click', () => {
     if (activeGame === true) {
-    let compare = [player1[0], player2[0]]
-    player1Draw.innerText = player1[0]
-    player2Draw.innerText = player2[0]
+    let player1Flip = player1[0][0]
+    let player2Flip = player2[0][0]
+    console.log('player1 flip', player1Flip)
+    console.log('player2 flip', player2Flip)
+    player1Draw.innerText = player1[0][1]
+    player2Draw.innerText = player2[0][1]
+    // return player1Flip
     // parseInt(compare[0])
     // parseInt(compare[1])
-    console.log('flipping', parseInt(compare[0], 10), parseInt(compare[1], 10))
+    console.log('flipping', compare[0], compare[1])
     if(parseInt(compare[0], 10) === parseInt(compare[1], 10) && tie === false) {
         tie = true
         declareWar.style.visibility = 'visible'
@@ -126,7 +117,7 @@ flipCard.addEventListener('click', () => {
 for (let i = 0; i < suits.length; i++) {
      for (let j = 0; j < ranks.length; j++) {
         //  for (let y = 0; y < scores.length; y++) {
-            deck.push(ranks[j] + suits[i])
+            deck.push([scores[j], ranks[j] + suits[i]])
         //  }
         // console.log(ranks[r] + suits[i])
     
