@@ -9,8 +9,6 @@
     position: fixed; 
     top: 0; 
     left: 0; 
-      
-    /* Preserve aspet ratio */
     min-width: 100%;
     min-height: 100%;
   }
@@ -34,6 +32,10 @@ header {
     position: absolute;
     top: 0;
     text-align: center;
+}
+
+h2 {
+    font-size: ;
 }
 
 div {
@@ -90,10 +92,13 @@ div {
     cursor: pointer;
 }
 
+.player1-cards, .player2-cards {
+    font-size: 30px;
+    font-family: cursive;
+    color: white;
+}
 
-/* .player {
-    position: relative;
-} */
+
 
 .player-cards {
     background-image: url("https://i.imgur.com/rTVTZZn.jpg");
@@ -102,6 +107,7 @@ div {
     width: 24vh;
     justify-content: center;
     background-color: white;
+    border: 1px solid black;
     border-radius: 6px;
 }
 
@@ -113,5 +119,7 @@ div {
     width: 24vh;
     justify-content: center;
     border-radius: 6px;
+    /* border: 1px solid black; */
+
 }
 

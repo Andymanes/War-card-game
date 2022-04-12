@@ -4,7 +4,7 @@
 // GLOBAL VARIABLES
 
 
-let suits = [' \u2660', ' \u2666', ' \u2663', ' \u2665']
+let suits = [' h', ' s', ' c', ' d']
 let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 let scores = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 // , '7', '8', '9', '10', 'J', 'Q', 'K', 'A'
@@ -102,6 +102,10 @@ newGame.addEventListener('click', () => {
         flipCard.style.visibility = 'visible'
         player1Cards.innerText = player1.length
         player2Cards.innerText = player2.length
+        player1Draw.style.backgroundColor = null
+        player1Draw.style.border = '0px'
+        player2Draw.style.backgroundColor = null
+        player2Draw.style.border = '0px'
 })
 
 
@@ -111,6 +115,8 @@ flipCard.addEventListener('click', () => {
     // set first array of player 1 and player 2 to their own variables
     let player1Flip = player1[0]
     let player2Flip = player2[0]
+    player1Draw.style.border = '1px solid black'
+    player2Draw.style.border = '1px solid black'
     // compare first index of each variable then push both arrays into the deck of whichever
     // player won the flip then remove the first variable out of each player's deck
     // console.log(player2[0][1])
