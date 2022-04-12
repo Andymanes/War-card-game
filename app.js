@@ -77,7 +77,7 @@ declareWar.addEventListener('click', () => {
     player1Cards.innerText = player1.length
     player2Cards.innerText = player2.length
     tie = false
-    declareWar.style.visibility = 'visible'
+    declareWar.style.visibility = 'hidden'
     flipCard.style.visibility = 'visible'
     winner()
 })
@@ -98,7 +98,7 @@ newGame.addEventListener('click', () => {
     
         player2 = deck.slice().splice(-cutDeck)
         console.log('player2', player2)
-        declareWar.style.visibility = 'visible'
+        declareWar.style.visibility = 'hidden'
         flipCard.style.visibility = 'visible'
         player1Cards.innerText = player1.length
         player2Cards.innerText = player2.length

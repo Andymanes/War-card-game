@@ -36,6 +36,7 @@ header {
 
 h1 {
     color: whitesmoke;
+    user-select: none;
 }
 
 h3 {
@@ -43,12 +44,14 @@ h3 {
     font-family: cursive;
     color: whitesmoke;
     margin-top: 5px;
+    user-select: none;
 } 
 
 h2 {
     font-size: 40px;
     font-family: monospace;
     color: whitesmoke;
+    user-select: none;
 }
 
 div {
@@ -66,7 +69,7 @@ div {
 
 .column {
     align-items: center;
-    /* position: relative; */
+    position: relative;
 }
 
 .new-game {
@@ -80,6 +83,7 @@ div {
     padding: 15px;
     border-radius: 7px;
     border-color: black;
+    user-select: none;
     
     
 }
@@ -93,6 +97,7 @@ div {
     width: 24vh;
     box-shadow: 12px 12px 10px 1px rgba(0, 0, 0, .2);
     border: 1px solid black;
+    user-select: none;
 }
 
 .buttons {
@@ -110,6 +115,8 @@ div {
     padding: 15px;
     border-radius: 7px;
     border-color: black;
+    visibility: hidden;
+    user-select: none;
 }
 
 .declare-war {
@@ -118,12 +125,15 @@ div {
     padding: 15px;
     border-radius: 7px;
     border-color: black;
+    visibility: hidden;
+    user-select: none;
 }
 
 .player1-cards, .player2-cards {
     font-size: 30px;
     font-family: cursive;
     color: white;
+    user-select: none;
 }
 
 
@@ -147,6 +157,7 @@ div {
     width: 24vh;
     justify-content: center;
     border-radius: 6px;
+    user-select: none;
     /* border: 1px solid black; */
 
 }
