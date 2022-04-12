@@ -4,7 +4,7 @@
 // GLOBAL VARIABLES
 
 
-let suits = [' of Spades', ' of Clubs', ' of Hearts', ' of Diamonds']
+let suits = [' \u2660', ' \u2666', ' \u2663', ' \u2665']
 let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 let scores = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 // , '7', '8', '9', '10', 'J', 'Q', 'K', 'A'
@@ -16,13 +16,14 @@ let compare = []
 let tiePile = []
 let tie = false
 let activeGame = false
+let cardsAdded = ''
 let newGame = document.querySelector('.new-game')
 let flipCard = document.querySelector('.flip')
 let declareWar = document.querySelector('.declare-war')
 let player1Cards = document.querySelector('.player1-cards')
 let player2Cards = document.querySelector('.player2-cards')
-let player1Draw = document.querySelector('.player1-flipped-card')
-let player2Draw = document.querySelector('.player2-flipped-card')
+let player1Draw = document.querySelector('.player1-flip')
+let player2Draw = document.querySelector('.player2-flip')
 player1Draw.innerHTML = null
 player2Draw.innerHTML = null
 
@@ -47,6 +48,12 @@ declareWar.addEventListener('click', () => {
     console.log(player1Flip, player2Flip)
     player1.splice(0, 4)
     player2.splice(0, 4)
+    // (cardsAdded %2==0)
+        addCard(player1Draw)
+      
+        addCard(player2Draw)
+      
+    //   cardsAdded++
     // return (compare)
     // if a tie happens, do not remove 4 cards until declare war button clicked again
     if(activeGame === true && player1Flip[0] === player2Flip[0]) {
@@ -70,7 +77,7 @@ declareWar.addEventListener('click', () => {
     player1Cards.innerText = player1.length
     player2Cards.innerText = player2.length
     tie = false
-    declareWar.style.visibility = 'hidden'
+    declareWar.style.visibility = 'visible'
     flipCard.style.visibility = 'visible'
     winner()
 })
@@ -91,7 +98,7 @@ newGame.addEventListener('click', () => {
     
         player2 = deck.slice().splice(-cutDeck)
         console.log('player2', player2)
-        declareWar.style.visibility = 'hidden'
+        declareWar.style.visibility = 'visible'
         flipCard.style.visibility = 'visible'
         player1Cards.innerText = player1.length
         player2Cards.innerText = player2.length
@@ -106,9 +113,13 @@ flipCard.addEventListener('click', () => {
     let player2Flip = player2[0]
     // compare first index of each variable then push both arrays into the deck of whichever
     // player won the flip then remove the first variable out of each player's deck
+    // console.log(player2[0][1])
+    // console.log(player1Flip, player2Flip)
     winner()
-    player1Draw.innerHTML = player1[0][1]
-    player2Draw.innerHTML = player2[0][1]
+    player1Draw.style.backgroundColor = "white";
+    player2Draw.style.backgroundColor = "white";
+    player1Draw.innerText = player1Flip[1]
+    player2Draw.innerText = player2Flip[1]
     console.log('flipping', player1Flip, player2Flip)
     if(player1Flip[0] === player2Flip[0] && tie === false) {
         tie = true
@@ -139,7 +150,21 @@ flipCard.addEventListener('click', () => {
 }})
 
 
-
+function addCard(target){
+    for(let i = 0; i < 3; i++) {
+    const newCard = document.createElement("div")
+    newCard.setAttribute('class',"card new-card")
+    newCard.innerText = cardsAdded
+    newCard.style.top = `${10*cardsAdded}px`
+    newCard.style.transform = `translateY(${20*i}px)`
+    newCard.style.zIndex = '-1'
+    target.prepend(newCard)
+    }
+    // translate y
+    // newCard.style.left = `${1.2*cardsAdded}px`
+    
+    console.log(target)
+  }
 
 // creating 52 card deck
 // function makeDeck() {

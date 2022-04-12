@@ -2,7 +2,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
+
+#bg {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+      
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+  }
 
 body, .column {
     display: flex;
@@ -14,6 +25,9 @@ body {
     justify-content: center;
     height: 100vh;
     position: relative;
+    background-color:rgb(79, 77, 80);
+    background-image: url("https://i.imgur.com/q9D8JVz.jpg");
+    background-size: cover, contain;
 }
 
 header {
@@ -23,7 +37,7 @@ header {
 }
 
 div {
-    border: 1px black solid;
+    /* border: 1px black solid; */
     margin: 20px;
 }
 
@@ -31,14 +45,34 @@ div {
     height: 60vh;
     display: flex;
     align-items: center;
+    
+    
 }
 
 .column {
     align-items: center;
+    position: relative;
+}
+
+.new-game {
+    font-size: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.new-card {
+    position: absolute;
+    background-image: url("https://i.imgur.com/rTVTZZn.jpg");
+    border-radius: 6px;
+    padding: 2em;
+    height: 33vh;
+    width: 24vh;
+    box-shadow: 12px 12px 10px 1px rgba(0, 0, 0, .2);
+    border: 1px solid black;
 }
 
 .buttons {
-    position: relative;
+    /* position: relative;*/
     height: 50vh;
     align-items: center;
     justify-content: center;
@@ -46,26 +80,38 @@ div {
     width: 20vh;
 }
 
-.player {
-    position: relative;
-}
-
-.player-cards {
-    text-align: center;
-    height: 40vh;
-    width: 26vh;
-    justify-content: center;
-}
-
 .flip {
     font-size: 33px;
+    cursor: pointer;
 }
 
 .declare-war {
     font-size: 30px;
+    cursor: pointer;
 }
 
-.new-game {
-    font-size: 30px;
-    margin-top: 10px;
+
+/* .player {
+    position: relative;
+} */
+
+.player-cards {
+    background-image: url("https://i.imgur.com/rTVTZZn.jpg");
+    text-align: center;
+    height: 33vh;
+    width: 24vh;
+    justify-content: center;
+    background-color: white;
+    border-radius: 6px;
 }
+
+.player1-flip, .player2-flip {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    height: 33vh;
+    width: 24vh;
+    justify-content: center;
+    border-radius: 6px;
+}
+

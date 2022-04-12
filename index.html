@@ -7,30 +7,30 @@
     <title>War!</title>
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="main.css">
-    
 </head>
 <body>
     <header>
         <h1>WAR</h1>
-        <p>A tie means War!</p>
-        <p>During war both players wager 3 cards then compare a 4th card</p>
-        <p>Winner takes ALL wagered cards</p>
-        <p>first player to run out of cards or not have enough to wage war loses</p>
+        <h3>High card wins</h3>
+        <h3>first player to run out of cards or not have enough to wage war loses</h3>
         <button class="new-game">New Game</button>
     </header>   
-    <main>
+    <main> 
         <div class="row">
             <div class="column">
                 <h2>player 1</h2>
                 <div class="row">
-                    <div class="column player-cards">
-                        <h4>remaining cards</h4>
-                        <div class="player1-cards"></div>
+                    <div class="column">
+                        <div class="player1-cards">Take your seat
+                        </div>
+                        <div class="column player-cards"></div>
+                        <div class="manipulate"></div>
+                        <!-- <h4>remaining cards</h4> -->
                     </div>
-                    <div class="column player-cards">
+                    <div class="column player1-flip"></div>
                         <!-- <h4>flipped card</h4> -->
-                        <div class="player1-flipped-card"></div>
-                    </div>
+                        <!-- <div class="player1-flipped-card"></div> -->
+                    
                 </div>
                 <p>message for now cuz howey is awesome</p>
             </div>
@@ -41,20 +41,22 @@
             <div class="column">
                 <h2>player 2</h2>
                 <div class="row">
-                    <div class="column player-cards">
+                    <div class="column player2-flip">
                         <!-- <h4></h4> -->
-                        <div class="player2-flipped-card"></div>
+                        <!-- <div class="player2-flipped-card"></div> -->
                     </div>
-                    <div class="column player-cards">
-                        <h4>remaining cards</h4>
+                    <div class="column">
                         <div class="player2-cards"></div>
+                        <div class="column player-cards"></div>
+                        <div class="manipulate"></div>
+                        <!-- <h4>remaining cards</h4> -->
                     </div>
                 </div>
                 <p>message for now cuz howey is awesome</p>
             </div>
         </div>
     </main>
-
+    
     <!-- <section class="table">
         <div class="left">
             <div class="player1">Player 1
