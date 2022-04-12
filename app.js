@@ -23,6 +23,8 @@ let player1Cards = document.querySelector('.player1-cards')
 let player2Cards = document.querySelector('.player2-cards')
 let player1Draw = document.querySelector('.player1-flipped-card')
 let player2Draw = document.querySelector('.player2-flipped-card')
+player1Draw.innerHTML = null
+player2Draw.innerHTML = null
 
 
 
@@ -79,8 +81,8 @@ newGame.addEventListener('click', () => {
         // let
         // makeDeck()
         shuffleDeck(deck)
-        player1Draw.innerText = null
-        player2Draw.innerText = null
+        player1Draw.innerHTML = null
+        player2Draw.innerHTML = null
         activeGame = true
         let cutDeck = Math.ceil(deck.length / 2)
         
@@ -105,8 +107,8 @@ flipCard.addEventListener('click', () => {
     // compare first index of each variable then push both arrays into the deck of whichever
     // player won the flip then remove the first variable out of each player's deck
     winner()
-    player1Draw.innerText = player1[0][1]
-    player2Draw.innerText = player2[0][1]
+    player1Draw.innerHTML = player1[0][1]
+    player2Draw.innerHTML = player2[0][1]
     console.log('flipping', player1Flip, player2Flip)
     if(player1Flip[0] === player2Flip[0] && tie === false) {
         tie = true

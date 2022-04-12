@@ -1,92 +1,71 @@
-
-body {
-    color: coral;
-    background-color: white;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    
-    
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.table {
-    color: coral;
-    background-color: rgb(27, 31, 31);
-    display: flex;
-    justify-content: space-between;
-    min-height: 100vh;
-    width: 100%;
-}
-
-.left {
-    color: black;
-    background-color: aqua;
-    text-align: center;
-    border: 3px white;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.rules {
-    background-color: blueviolet;
-    text-align: center;
-    width: 100%;
+body, .column {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
 }
 
-.right {
-    color: black;
-    background-color: aqua;
-    text-align: center;
-    width: 100%;
-    display: flex;
+body {
+    align-items: center;
     justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+
+div {
+    border: 1px black solid;
+    margin: 20px;
+}
+
+.row {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.column {
     align-items: center;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
+    position: relative;
+    height: 50vh;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    width: 20vh;
+}
+
+.player {
+    position: relative;
+}
+
+.player-cards {
+    text-align: center;
+    height: 40vh;
+    width: 26vh;
+    justify-content: center;
+}
+
+.flip {
+    font-size: 33px;
+}
+
+.declare-war {
+    font-size: 30px;
 }
 
 .new-game {
     font-size: 30px;
-    padding: 2px;
-    cursor: pointer;
-    width: 50%;
+    margin-top: 10px;
 }
-
-.flip {
-    font-size: 30px;
-    padding: 2px;
-    cursor: pointer;
-    /* visibility: hidden; */
-}
-
-.declare-war {
-    /* visibility: visible; */
-    font-size: 30px;
-    cursor: pointer;
-}
-
-h1 {
-    text-align: center;
-    border-color: aliceblue;
-    border: 3px;
-}
-
-
-
-
-
-
-
