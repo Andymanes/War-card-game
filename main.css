@@ -34,8 +34,21 @@ header {
     text-align: center;
 }
 
+h1 {
+    color: whitesmoke;
+}
+
+h3 {
+    font-size: 15px;
+    font-family: cursive;
+    color: whitesmoke;
+    margin-top: 5px;
+} 
+
 h2 {
-    font-size: ;
+    font-size: 40px;
+    font-family: monospace;
+    color: whitesmoke;
 }
 
 div {
@@ -53,13 +66,22 @@ div {
 
 .column {
     align-items: center;
-    position: relative;
+    /* position: relative; */
 }
 
 .new-game {
+    /* background-color: blue;
+    color: white; */
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 60px;
     cursor: pointer;
+    min-height: 35px;
+    min-width: 120px;
+    padding: 15px;
+    border-radius: 7px;
+    border-color: black;
+    
+    
 }
 
 .new-card {
@@ -85,11 +107,17 @@ div {
 .flip {
     font-size: 33px;
     cursor: pointer;
+    padding: 15px;
+    border-radius: 7px;
+    border-color: black;
 }
 
 .declare-war {
     font-size: 30px;
     cursor: pointer;
+    padding: 15px;
+    border-radius: 7px;
+    border-color: black;
 }
 
 .player1-cards, .player2-cards {
