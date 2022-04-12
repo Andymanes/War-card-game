@@ -173,14 +173,14 @@ function addCard(target){
   }
 
 // creating 52 card deck
-// function makeDeck() {
+
 for (let i = 0; i < suits.length; i++) {
      for (let j = 0; j < ranks.length; j++) {
         //  for (let y = 0; y < scores.length; y++) {
             deck.push([scores[j], ranks[j] + suits[i]])
         // applying one of each suit to one of each rank
         }}
-// }}
+
 
 
 // shuffling deck
@@ -194,7 +194,7 @@ function shuffleDeck(array) {
 
 
 // win condition:
-// one player runs out of cards or if one player only has an ace left
+// one player runs out of cards or doesn't have enough to wage war
 function winner() {
 if(player1.length === 0) {
     flipCard.style.visibility = 'hidden'
@@ -223,9 +223,27 @@ if(player1.length === 0) {
     return player2Cards
 }
 }
-// declareWar.style.visibility = 'hidden'
-// flipCard.style.visibility = 'hidden'
 
+document.querySelector('.p1-taunt').addEventListener('click',()=>{
+document.querySelector('.p1-manipulate').innerText = "You're going down!"
+})
 
-// const lastItem = colors[colors.length - 1] 
-// JAKE MIZE SPECIAL
+document.querySelector('.p2-taunt').addEventListener('click',()=>{
+document.querySelector('.p2-manipulate').innerText = "You're going down!"
+})
+
+document.querySelector('.p1-demoralize').addEventListener('click',()=>{
+document.querySelector('.p1-manipulate').innerText = "This is too easy"
+})
+
+document.querySelector('.p2-demoralize').addEventListener('click',()=>{
+document.querySelector('.p2-manipulate').innerText = "This is too easy"
+})
+
+document.querySelector('.p1-patronize').addEventListener('click',()=>{
+document.querySelector('.p1-manipulate').innerText = "Wow, nice play..."
+})
+
+document.querySelector('.p2-patronize').addEventListener('click',()=>{
+document.querySelector('.p2-manipulate').innerText = "Wow, nice play..."
+})

@@ -40,7 +40,7 @@ h1 {
 }
 
 h3 {
-    font-size: 15px;
+    font-size: 18px;
     font-family: cursive;
     color: whitesmoke;
     margin-top: 5px;
@@ -134,9 +134,18 @@ div {
     font-family: cursive;
     color: white;
     user-select: none;
+    margin-bottom: 0%;
 }
 
-
+.p1-manipulate, .p2-manipulate {
+    color: whitesmoke;
+    font-size: 25px;
+    /* border: 1px solid black; */
+    padding: 3px;
+    margin: 0%;
+    margin-top: 5px;
+    user-select: none;
+}
 
 .player-cards {
     background-image: url("https://i.imgur.com/rTVTZZn.jpg");
@@ -147,6 +156,7 @@ div {
     background-color: white;
     border: 1px solid black;
     border-radius: 6px;
+    margin-bottom: 0px;
 }
 
 .player1-flip, .player2-flip {
@@ -162,3 +172,30 @@ div {
 
 }
 
+.p1-taunt, .p2-taunt {
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 7px;
+    border-color: black;
+    user-select: none;
+    cursor: pointer;
+
+}
+
+.p1-demoralize, .p2-demoralize {
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 7px;
+    border-color: black;
+    user-select: none;
+    cursor: pointer;
+}
+
+.p1-patronize, .p2-patronize {
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 7px;
+    border-color: black;
+    user-select: none;
+    cursor: pointer;
+}
