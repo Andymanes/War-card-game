@@ -169,7 +169,7 @@ function addCard(target){
     // translate y
     // newCard.style.left = `${1.2*cardsAdded}px`
     
-    console.log(target)
+    // console.log(target)
   }
 
 // creating 52 card deck
