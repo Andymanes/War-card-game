@@ -1,62 +1,25 @@
-/*
-!!!! STEP ONE !!!!
-- Will need to make a deck of cards
-    - all 4 suits
-    - all 13 values for each suit
-        - thinking an array for each maybe?
-
-!!!! STEP TWO !!!!
-- Find a way to shuffle the deck
-    - thinking a for loop with the suits and values arrays but dont
-      know what that will be yet
-        - Math.floor(Math.random()).... something probably
-
-!!!! STEP 3 !!!!
-- Assign half of the shuffled deck to player 1 and the other half 
-  to player 2
-    - probably want some kind of a function called "deal" that will do this
-      that can be called on later 
-
-!!!! STEP 4 !!!! - Should probably do this before step 3
-- create 2 players
-    - Objects?
-    - variables?
-
-!!!! STEP 5 !!!!
-- begin creating play table
-    - assign player 1 to the left
-    - assign player 2 to the right
-
-!!!! STEP 6 !!!!
-- Create "flip cards" button that has JS functionality
-    - reveal 1 card from each pile
-    - calculates the highest card
-    - puts both cards in the winners "remaining deck" pile
-        - updates total of cards in "remaining deck" for each player
-
-!!!! STEP 7 !!!!
-- incorporate a tie scenario to the JS
-    - incorporate appropriate functions/calculations for when this happens
-    - acquire headache
-
-!!!! STEP 8 !!!!
-- add win condition 
-
-!!!! STEP 9 !!!!
-- add "new game" button that resets the entire board to back the beginning
-
-!!!! STEP 10 !!!!
-- make it pretty with CSS
+WAR! A game of attrition
+    - players do battle against one another by flipping over the top card in their deck
+    - the high card takes their opponents card and puts both cards in the bottom of their deck
+    - if there is a tie, players escalate to war by placing 3 cards facedown then revealing a 4th card
+    - the high card from that reveal then takes all of the cards wagered by their opponent 
 
 
-                            !!!!!!!!!!!!!!!!!!!!!!
-                            !!!!!!!!!!!!!!!!!!!!!!
-                            !!!!!!BONUS STUFF!!!!!
-                            !!!!!!!!!!!!!!!!!!!!!!
-                            !!!!!!!!!!!!!!!!!!!!!!
+
+![War wireframe](https://user-images.githubusercontent.com/101294232/163197842-683ac8b6-c6db-48a5-bdfd-9af9ee02bd1f.png)
 
 
-- Add messages if a high card is lost
-- Add dropdown menu of messages for players to say to each other 
-    
-*/
+
+
+![Screenshot (12)](https://user-images.githubusercontent.com/101294232/163197876-c171aad9-ba4a-48c6-9c3e-ff8c9a1cf741.png)
+
+- Technologies used -
+    - Javascript
+    - html
+    - css
+
+
+- Getting Started - 
+
+- link to game - https://andymanes.github.io/War-card-game/
+- Simply click "New Game" to wage war against your enemy!
